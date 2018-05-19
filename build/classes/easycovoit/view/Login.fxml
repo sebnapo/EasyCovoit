@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets ?>
+
+<GridPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easycovoit.controller.LoginController">
+    <padding>
+        <Insets bottom="10" left="25.0" right="25.0" top="10" />
+    </padding>
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER">
+            <Text>EasyCovoit, le covoit simplifié !</Text>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label>E-mail :</Label>
+            <TextField></TextField>
+            <Label>Mot de passe :</Label>
+            <TextField></TextField>
+        </HBox>
+    </VBox>
+</GridPane>

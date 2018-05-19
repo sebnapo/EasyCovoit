@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<GridPane id="AnchorPane" alignment="center" prefHeight="75.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easycovoit.controller.LoginController">
+    <padding>
+        <Insets bottom="10" left="25.0" right="25.0" top="10" />
+    </padding>
+    <VBox alignment="CENTER" spacing="5.0">
+        <HBox alignment="CENTER" spacing="5.0">
+            <Text>EasyCovoit, le covoit simplifié !</Text>
+        </HBox>
+        <HBox alignment="CENTER" spacing="5.0">
+            <Label>E-mail :</Label>
+            <TextField fx:id="emailEntry" />
+            <Label>Mot de passe :</Label>
+            <TextField fx:id="passwordEntry" />
+        </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+         <children>
+             <Button fx:id="connectButton" mnemonicParsing="false" text="Se connecter" />
+             <Button fx:id="inscriptionButton" mnemonicParsing="false" text="S'inscrire" />
+         </children>
+      </HBox>
+    </VBox>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

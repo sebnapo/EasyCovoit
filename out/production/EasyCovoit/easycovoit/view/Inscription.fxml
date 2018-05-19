@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easycovoit.controller.InscriptionController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <VBox alignment="CENTER" prefHeight="281.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" text="E-mail :" />
+                        <TextField fx:id="emailEntry" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="217.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" text="Mot de passe :" />
+                        <TextField fx:id="passwordEntry" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="217.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" text="Téléphone :" />
+                        <TextField fx:id="telEntry" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="217.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <top>
+            <Label prefHeight="36.0" prefWidth="162.0" text="Inscription" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </top>
+         <bottom>
+            <Button fx:id="inscriptionButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="S'inscrire" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+            </Button>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
