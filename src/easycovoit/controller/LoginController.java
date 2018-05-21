@@ -5,6 +5,7 @@
  */
 package easycovoit.controller;
 
+import easycovoit.EasyCovoit;
 import easycovoit.model.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -46,9 +48,11 @@ public class LoginController implements Initializable {
             e.printStackTrace();
         }
         connectButton.setOnMouseClicked(event -> {
+            ResultSet rs;
             try {
-                if(db.seConnecter(emailEntry.getText(),passwordEntry.getText())){
+                if((rs = db.seConnecter(emailEntry.getText(),passwordEntry.getText())) != null){
                     try {
+                        EasyCovoit.setIdUser(Integer.parseInt(rs.getString("idUtilisateur")));
                         Stage stage = (Stage) inscriptionButton.getScene().getWindow();
                         System.out.println(stage);
                         Parent root = FXMLLoader.load(getClass().getResource("../view/Principale.fxml"));

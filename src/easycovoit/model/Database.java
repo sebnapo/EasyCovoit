@@ -37,15 +37,15 @@ public class Database {
             this.st = st;
     }
 
-    public boolean seConnecter(String email,String motDePasse) throws SQLException {
+    public ResultSet seConnecter(String email,String motDePasse) throws SQLException {
             PreparedStatement statement = this.cn.prepareStatement("SELECT * FROM Utilisateur WHERE email = ? AND password = ?");
             statement.setString(1, email);
             statement.setString(2, motDePasse);
             ResultSet rs = statement.executeQuery();
             if(rs.next()) {
-                    return true;
+                    return rs;
             } else {
-                    return false;
+                    return null;
             }
     }
 
@@ -56,6 +56,38 @@ public class Database {
             statement.setString(3, user.getTelephone());
             statement.executeUpdate();
             return true;
+    }
+
+    public ResultSet getAllTrajet(String VilleDepart,String VilleArrive,Timestamp dateDepart){
+        try {
+            PreparedStatement statement = this.cn.prepareStatement(
+                    "SELECT * FROM Trajet WHERE idTrajet = (SELECT idTrajet FROM VilleEtape as VilleEtape1 WHERE" +
+                    " ville = ? AND datePassage BETWEEN ? AND DATE_ADD(?,INTERVAL 1 HOUR) AND " +
+                            "idTrajet IN (SELECT idTrajet FROM VilleEtape as VilleEtape2" +
+                    " WHERE ville = ? AND VilleEtape1.datePassage < VilleEtape2.datePassage))");
+            statement.setString(1,VilleDepart);
+            statement.setTimestamp(2,dateDepart);
+            statement.setTimestamp(3,dateDepart);
+            statement.setString(4,VilleArrive);
+            System.out.println(statement);
+            return statement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
+    public ResultSet getMyTrajet(int idUser){
+        try {
+            PreparedStatement statement = this.cn.prepareStatement("SELECT * FROM Trajet " +
+                    "INNER JOIN VilleEtape ON Trajet.idTrajet = VilleEtape.idTrajet WHERE Trajet.idConducteur = ?");
+            statement.setInt(1,idUser);
+            return statement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 

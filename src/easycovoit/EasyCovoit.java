@@ -5,23 +5,21 @@
  */
 package easycovoit;
 
-import java.io.IOException;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  *
  * @author anonymous
  */
 public class EasyCovoit extends Application {
-    
+
+    private static int idUser;
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
@@ -37,5 +35,12 @@ public class EasyCovoit extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
+    public static int getIdUser() {
+        return idUser;
+    }
+
+    public static void setIdUser(int idUser) {
+        EasyCovoit.idUser = idUser;
+    }
 }
